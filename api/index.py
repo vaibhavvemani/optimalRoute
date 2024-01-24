@@ -24,10 +24,14 @@ def sendRequest():
                 "placeId": f"{d_placeid}"
             },
             "travelMode": "DRIVE",
-            "routingPreference": "TRAFFIC_AWARE",
+            "extraComputations": ["TRAFFIC_ON_POLYLINE"],
+            "routingPreference": "TRAFFIC_AWARE_OPTIMAL",
             "departureTime": "2024-10-15T15:01:23.045123456Z",
             "computeAlternativeRoutes": False,
             "routeModifiers": {
+                "vehicleInfo": {
+                    "emissionType": "GASOLINE"
+                },
                 "avoidTolls": False,
                 "avoidHighways": False,
                 "avoidFerries": False
@@ -37,7 +41,6 @@ def sendRequest():
         }
     )
     response = Response(r.text) 
-    print(r.text)
     response.headers['Access-Control-Allow-Origin'] = '*'
     return response
 
