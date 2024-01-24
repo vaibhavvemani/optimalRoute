@@ -23,11 +23,6 @@ def sendRequest():
             "destination":{
                 "placeId": f"{d_placeid}"
             },
-            "travelMode": "DRIVE",
-            "extraComputations": ["TRAFFIC_ON_POLYLINE"],
-            "routingPreference": "TRAFFIC_AWARE_OPTIMAL",
-            "departureTime": "2024-10-15T15:01:23.045123456Z",
-            "computeAlternativeRoutes": False,
             "routeModifiers": {
                 "vehicleInfo": {
                     "emissionType": "GASOLINE"
@@ -36,6 +31,11 @@ def sendRequest():
                 "avoidHighways": False,
                 "avoidFerries": False
             },
+            "travelMode": "DRIVE",
+            "extraComputations": ["TRAFFIC_ON_POLYLINE"],
+            "routingPreference": "TRAFFIC_AWARE_OPTIMAL",
+            "departureTime": "2024-10-15T15:01:23.045123456Z",
+            "computeAlternativeRoutes": False,
             "languageCode": "en-US",
             "units": "IMPERIAL"
         }
