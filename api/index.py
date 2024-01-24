@@ -14,7 +14,7 @@ def sendRequest():
         headers={
             'Content-Type': 'application/json',
             'X-Goog-Api-Key': maps_api_key,
-            'X-Goog-FieldMask': 'routes.duration,routes.distanceMeters,routes.routeLabels,routes.routeToken,routes.polyline.encodedPolyline',
+            'X-Goog-FieldMask': 'routes.duration,routes.distanceMeters,routes.routeLabels,routes.routeToken,routes.polyline.encodedPolyline,routes.travelAdvisory,routes.legs.travelAdvisory',
         },
         json={
             "origin":{
