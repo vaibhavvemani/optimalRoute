@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, Response
 import requests
 import os
 
@@ -7,7 +7,7 @@ maps_api_key = os.environ.get('MAPS_API_KEY')
 
 @app.get('/getroute')
 def sendRequest():
-    response = requests.post(
+    r = requests.post(
         "https://routes.googleapis.com/directions/v2:computeRoutes", 
         headers={
             'Content-Type': 'application/json',
@@ -34,6 +34,8 @@ def sendRequest():
             "units": "IMPERIAL"
         }
     )
-    return response.text
+    response = Response(r.text) 
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    return response
 
 
