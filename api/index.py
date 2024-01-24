@@ -14,7 +14,7 @@ def sendRequest():
             'X-Goog-Api-Key': maps_api_key,
             'X-Goog-FieldMask': 'routes.duration,routes.distanceMeters,routes.polyline.encodedPolyline',
         },
-        data={
+        json={
             "origin":{
                 "placeId": "ChIJayOTViHY5okRRoq2kGnGg8o"
             },
