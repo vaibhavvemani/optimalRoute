@@ -7,7 +7,7 @@ maps_api_key = os.environ.get('MAPS_API_KEY')
 
 @app.get('/getroute')
 def sendRequest():
-    data = requests.post(
+    response = requests.post(
         "https://routes.googleapis.com/directions/v2:computeRoutes", 
         headers={
             'Content-Type': 'application/json',
@@ -34,6 +34,6 @@ def sendRequest():
             "units": "IMPERIAL"
         }
     )
-    return data
+    return response.text
 
 
