@@ -32,8 +32,9 @@ def sendRequest():
                 "avoidFerries": False
             },
             "travelMode": "DRIVE",
-            "extraComputations": ["TRAFFIC_ON_POLYLINE"],
             "routingPreference": "TRAFFIC_AWARE_OPTIMAL",
+            "requestedReferenceRoutes": ["FUEL_EFFICIENT"],
+            "extraComputations": ["TRAFFIC_ON_POLYLINE"],
             "departureTime": "2024-10-15T15:01:23.045123456Z",
             "computeAlternativeRoutes": False,
             "languageCode": "en-US",
