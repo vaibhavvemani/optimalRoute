@@ -1,4 +1,4 @@
-from flask import Flask, Response
+from flask import Flask, Response, request
 import requests
 import os
 
@@ -7,6 +7,8 @@ maps_api_key = os.environ.get('MAPS_API_KEY')
 
 @app.get('/getroute')
 def sendRequest():
+    o_placeid = request.args.get("o_place")
+    d_placeid = request.args.get("d_place")
     r = requests.post(
         "https://routes.googleapis.com/directions/v2:computeRoutes", 
         headers={
@@ -16,10 +18,10 @@ def sendRequest():
         },
         json={
             "origin":{
-                "placeId": "ChIJayOTViHY5okRRoq2kGnGg8o"
+                "placeId": f"{o_placeid}"
             },
             "destination":{
-                "placeId": "ChIJTYKK2G3X5okRgP7BZvPQ2FU"
+                "placeId": f"{d_placeid}"
             },
             "travelMode": "DRIVE",
             "routingPreference": "TRAFFIC_AWARE",
