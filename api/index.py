@@ -35,6 +35,7 @@ def sendRequest():
         }
     )
     response = Response(r.text) 
+    print(r.text)
     response.headers['Access-Control-Allow-Origin'] = '*'
     return response
 
