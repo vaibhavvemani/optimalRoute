@@ -85,7 +85,7 @@ def getRoute():
     response.headers['Access-Control-Allow-Origin'] = '*'
     return response
 
-@app.get('/getplaces')
+@app.put('/getplaces')
 def getRoute():
     d_placeid = request.args.get("d_place")
     r = requests.post(
