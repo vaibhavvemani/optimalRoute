@@ -84,3 +84,19 @@ def getRoute():
     response.headers['Access-Control-Allow-Origin'] = '*'
     return response
 
+@app.get('/getquality')
+def getquality():
+    r = requests.get(f"https://airquality.googleapis.com/v1/mapTypes/TYPE/heatmapTiles/2/2/1?key={maps_api_key}")
+    response = Response(r.text)
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    return response
+
+@app.get('/getusquality')
+def getquality():
+    r = requests.get(f"https://airquality.googleapis.com/v1/mapTypes/TYPE/heatmapTiles/2/0/1?key={maps_api_key}")
+
+    r2 = requests.get(f"https://airquality.googleapis.com/v1/mapTypes/TYPE/heatmapTiles/2/0/1?key={maps_api_key}")
+    response = Response(r.text + r2.text)
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    return response
+
