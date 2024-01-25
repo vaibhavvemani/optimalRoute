@@ -9,6 +9,7 @@ maps_api_key = os.environ.get('MAPS_API_KEY')
 def sendRequest():
     o_placeid = request.args.get("o_place")
     d_placeid = request.args.get("d_place")
+    vehicle_type = request.args.get("vtype")
     r = requests.post(
         "https://routes.googleapis.com/directions/v2:computeRoutes", 
         headers={
@@ -25,7 +26,7 @@ def sendRequest():
             },
             "routeModifiers": {
                 "vehicleInfo": {
-                    "emissionType": "GASOLINE"
+                    "emissionType": f"{vehicle_type}"
                 },
                 "avoidTolls": False,
                 "avoidHighways": False,
