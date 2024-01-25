@@ -111,3 +111,4 @@ def getRoute():
     response = Response(r.text) 
     response.headers['Access-Control-Allow-Origin'] = '*'
     return response
+
