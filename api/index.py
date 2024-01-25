@@ -84,31 +84,3 @@ def getRoute():
     response = Response(r.text) 
     response.headers['Access-Control-Allow-Origin'] = '*'
     return response
-
-@app.put('/getplaces')
-def getRoute():
-    d_placeid = request.args.get("d_place")
-    r = requests.post(
-        "https://places.googleapis.com/v1/places:searchNearby", 
-        headers={
-            'Content-Type': 'application/json',
-            'X-Goog-Api-Key': maps_api_key,
-            'X-Goog-FieldMask': 'places.displayName'
-        },
-        json={
-            "includedTypes": ["restaurant"],
-            "maxResultCount": 10,
-            "locationRestriction": {
-                "circle": {
-                "center": {
-                    "placeId": f"{d_placeid}"},
-                "radius": 500.0
-                }
-            }
-        }
-        
-    )
-    response = Response(r.text) 
-    response.headers['Access-Control-Allow-Origin'] = '*'
-    return response
-
