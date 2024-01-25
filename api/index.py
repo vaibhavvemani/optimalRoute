@@ -101,8 +101,7 @@ def getRoute():
             "locationRestriction": {
                 "circle": {
                 "center": {
-                    "latitude": 37.7937,
-                    "longitude": -122.3965},
+                    "placeId": f"{d_placeid}"},
                 "radius": 500.0
                 }
             }
